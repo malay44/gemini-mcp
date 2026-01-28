@@ -18,6 +18,7 @@ A Model Context Protocol (MCP) server for integrating Google's Gemini 3 models w
 | **URL Analysis**              | Analyze, compare, and extract data from web pages               |
 | **Context Caching**           | Cache large documents for efficient repeated queries            |
 | **YouTube Analysis**          | Analyze videos by URL with timestamp clipping                   |
+| **Local Video Analysis**      | Analyze local video files (MP4, MOV, etc.) with Q&A             |
 | **Document Analysis**         | PDFs, DOCX, spreadsheets with table extraction                  |
 | **4K Image Generation**       | Generate images up to 4K with 10 aspect ratios                  |
 | **Multi-Turn Image Editing**  | Iteratively refine images through conversation                  |
@@ -255,6 +256,30 @@ Quick video summarization:
 
 ```
 url: "https://www.youtube.com/watch?v=..."
+style: "brief" | "detailed" | "bullet-points" | "chapters"
+```
+
+### gemini-analyze-video
+
+Analyze local video files:
+
+```
+filePath: "/path/to/video.mp4"
+question: "What happens in this video?"
+startTime: "1m30s" (optional, for clipping)
+endTime: "5m00s" (optional, for clipping)
+model: "pro" | "flash" (default: flash)
+```
+
+Supports MP4, MPEG, MOV, AVI, FLV, MPG, WebM, WMV, 3GP formats.
+Automatically uses Files API for larger videos (>10MB).
+
+### gemini-summarize-video
+
+Quick local video summarization:
+
+```
+filePath: "/path/to/video.mp4"
 style: "brief" | "detailed" | "bullet-points" | "chapters"
 ```
 

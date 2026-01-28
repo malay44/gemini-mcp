@@ -104,6 +104,16 @@ This project is an MCP (Model Context Protocol) server that connects Claude to G
       - Thinking level support for complex analysis
       - Handles large files (>20MB) via Files API automatically
 
+19. **Video Analysis** (`video-analyze.ts`):
+    - `gemini-analyze-video`: Analyze local video files with Q&A
+      - Supports MP4, MPEG, MOV, AVI, FLV, MPG, WebM, WMV, 3GP
+      - Upload via Files API for larger files (>10MB)
+      - Inline data for smaller files
+      - Timestamp-based clipping with startTime/endTime
+      - Audio and visual understanding
+    - `gemini-summarize-video`: Quick video summarization
+      - Styles: brief, detailed, bullet-points, chapters
+
 ## Environment Variables
 
 | Variable | Required | Default | Description |
